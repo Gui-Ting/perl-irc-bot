@@ -9,15 +9,17 @@ binmode STDOUT,':utf8';
 my $client_socket = IO::Socket::SSL->new(
                                           PeerAddr=>'203.30.57.15',
                                           PeerPort=>'7000',
-                                          Proto=>'tcp',my %channels;
+                                          Proto=>'tcp',
+                                        );
+my %channels;                                         
 my %log_fh;
 print "Which channel to join?(<CHANNEL>)"."\n";
 chomp(my @ask_channel=<STDIN>);
 $channels{$_}="#$_" for (@ask_channel);
 
 for (sort keys %channels) {
-  system"touch /home/yenshine/perl/perl-irc-bot/log/$_-log.txt" unless (-e"/home/yenshine/perl/perl-irc-bot/log/$_-log.txt");
-  open $log_fh{$_},">>:encoding(UTF-8)","/home/yenshine/perl/perl-irc-bot/log/$_-log.txt";
+  system"touch ./$_-log.txt" unless (-e"./$_-log.txt");
+  open $log_fh{$_},">>:encoding(UTF-8)","./$_-log.txt";
 };
 
 my $hostname="yenshine";

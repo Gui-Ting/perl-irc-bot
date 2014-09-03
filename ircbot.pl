@@ -23,8 +23,8 @@ chomp(my @ask_channel=<STDIN>);
 $channels{$_}="#$_" for (@ask_channel);
 
 for (sort keys %channels) {
-  system"touch /home/yenshine/perl/perl-irc-bot/log/$_-log.txt" unless (-e"/home/yenshine/perl/perl-irc-bot/log/$_-log.txt");
-  open $log_fh{$_},">>:encoding(UTF-8)","/home/yenshine/perl/perl-irc-bot/log/$_-log.txt";
+  system"touch ./$_-log.txt" unless (-e"./$_-log.txt");
+  open $log_fh{$_},">>:encoding(UTF-8)","./$_-log.txt";
 };
 
 $_->autoflush(1) for ($SOCKET,values %log_fh);
