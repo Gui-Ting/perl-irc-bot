@@ -2,5 +2,5 @@
 use ExtUtils::MakeMaker;
 
 WriteMakefile (
-               PREREQ_PM=>{'IO::Socket::INET'=>'1.35'},
+               PREREQ_PM=>{'IO::Socket::INET'=>'1.33'},
                );
